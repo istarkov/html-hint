@@ -1,0 +1,35 @@
+{
+  "name": "html-hint",
+  "version": "0.0.1",
+  "description": "css hint based on hint.css with html content support",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/istarkov/html-hint.git"
+  },
+  "keywords": [
+    "css",
+    "html",
+    "hint",
+    "tooltip"
+  ],
+  "author": "istarkov https://github.com/istarkov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/istarkov/html-hint/issues"
+  },
+  "homepage": "https://github.com/istarkov/html-hint#readme",
+  "dependencies": {
+    "hint.css": "1.3.4"
+  },
+  "devDependencies": {
+    "node-sass": "^3.1.2"
+  },
+  "scripts": {
+    "build": "node-sass --output-style expanded html-hint.sass > ./dist/html-hint.css",
+    "min": "node-sass --output-style compressed html-hint.sass > ./dist/html-hint.min.css"
+  }
+}
