@@ -27,6 +27,14 @@ add `div` (*or other*) tag with `hint__content` class
 </span>
 ```
 
+#Install
+Just download any css from [dist folder](https://github.com/istarkov/html-hint/tree/master/dist)
+or install with npm
+```bash
+npm install --save html-hint
+```
+
+
 ##Build
 ```bash
 npm install
