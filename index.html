@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="ru" class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="ru" class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="ru" class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="ru" class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="noie"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>css html hint example</title>
+
+    <meta name="viewport" content="width=600, user-scalable=yes">
+
+    <meta property="og:title" content="css html hint example" />
+    <meta property="og:description" content="css html hint example" />
+
+    <link rel="stylesheet" href="html-hint.css" />
+  </head>
+
+  <body ondragstart="return false;">
+    <div style="font-family: sans-serif; margin: 50px">
+
+      <div style="text-align: center">
+        <span style="font-weight: bold">css html hint example</span>
+        <br>
+        <a href="https://github.com/istarkov/html-hint">
+          Get it on <img style="width: 20px;height:20px" src="GitHub-Mark-64px.png">
+        </a>
+      </div>
+      <div style="text-align: center; margin-top: 50px">
+      I'm a
+        <span class="hint hint--html hint--right" style="color: #0099FF">
+          hint right
+          <div style="pointer-events: none;" class="hint__content">
+            <div style="width: 140px; margin: 5px">
+              I'm a <strong>hint html content</strong>
+            </div>
+            <div>
+              <img style="width: 20px;height:20px" src="GitHub-Mark-64px.png">
+            </div>
+          </div>
+        </span>
+
+        <br>and i'm
+        <span class="hint hint--info hint--html hint--top" style="color: #0099FF">
+          hint top
+          <div style="pointer-events: none;" class="hint__content">
+            <div style="width: 140px; margin-bottom: 5px">
+              I'm a <i>HINT HTML INFO CONTENT</i>
+            </div>
+            <div>
+              <img style="width: 40px;height:40px" src="GitHub-Mark-64px.png">
+            </div>
+          </div>
+        </span>
+
+        <br>and i'm
+        <span class="hint hint--error hint--html hint--bottom" style="color: #0099FF">
+          hint bottom with link
+          <div class="hint__content">
+            <div style="width: 140px; margin: 5px">
+              I'm a HINT ERROR CONTENT
+            </div>
+            <div>
+              <a href="/">I'm a LINK</a>
+            </div>
+          </div>
+        </span>
+
+      </div>
+    </div>
+  </body>
+</html>
+
