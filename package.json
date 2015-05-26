@@ -1,10 +1,11 @@
 {
   "name": "html-hint",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "css hint based on hint.css with html content support",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node-sass --output-style expanded html-hint.sass > ./dist/html-hint.css",
+    "min": "node-sass --output-style compressed html-hint.sass > ./dist/html-hint.min.css"
   },
   "repository": {
     "type": "git",
@@ -27,9 +28,5 @@
   },
   "devDependencies": {
     "node-sass": "^3.1.2"
-  },
-  "scripts": {
-    "build": "node-sass --output-style expanded html-hint.sass > ./dist/html-hint.css",
-    "min": "node-sass --output-style compressed html-hint.sass > ./dist/html-hint.min.css"
   }
 }
