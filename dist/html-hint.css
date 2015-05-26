@@ -457,6 +457,10 @@
 /**
  * top tooltip
  */
+.hint--top:before, .hint--top:after {
+  left: calc(50% - 6px);
+}
+
 .hint--top .hint__content {
   margin-left: -18px;
 }
@@ -487,6 +491,10 @@
 /**
  * bottom tooltip
  */
+.hint--bottom:before, .hint--bottom:after {
+  left: calc(50% - 6px);
+}
+
 .hint--bottom .hint__content {
   margin-left: -18px;
 }

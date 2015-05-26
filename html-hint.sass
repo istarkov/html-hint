@@ -66,6 +66,8 @@ $custom-hint-hover-helper-size: 12px
 
 
 @mixin ice-vertical-positioned-tooltip($propertyY, $transitionDirection)
+  &:before, &:after
+    left: calc(50% - #{$arrowBorderWidth})
 
   .hint__content
     // bring back the tooltip by some offset so that arrow doesn't stick at end
