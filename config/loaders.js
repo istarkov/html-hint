@@ -15,9 +15,11 @@ module.exports = {
           'postcss-loader',
           `sass-loader?precision=10&indentedSyntax=sass`,
         ],
+        /*
         include: [
           path.join(__dirname, '../src'),
         ],
+        */
       },
       {
         test: /\.css$/,
