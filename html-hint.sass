@@ -48,11 +48,9 @@ $custom-hint-hover-helper-size: 12px
     visibility: visible
     opacity: 1
 
-
   &:hover:before, &:hover:after
     // $showDelay will apply as soon as element is hovered.
     @include vendor('transition-delay', $showDelay)
-
 
   /**
    * tooltip arrow
@@ -64,19 +62,6 @@ $custom-hint-hover-helper-size: 12px
     border: $arrowBorderWidth solid transparent
     // move z-index 1 up than :after so that it shows over box-shadow
     z-index: $zIndex + 1
-
-
-  /**
-   * tooltip body
-   */
-  &:after
-    content: attr(data-hint) // The magic!
-    background: $defaultColor
-    color: white
-    padding: $verticalPadding $horizontalPadding
-    font-size: $fontSize
-    line-height: $fontSize // Vertical centering.
-    white-space: nowrap // Prevent breaking to new line.
 
 
 .hint
@@ -117,24 +102,41 @@ $custom-hint-hover-helper-size: 12px
       @include vendor('transition', none)
 
 
-@mixin ice-set-margin($property, $transitionDirection)
+@mixin ice-set-margin($property, $transitionDirection, $xDirection:0)
+  $translateX: -50%
+  @if $xDirection == -1
+    $translateX: -100%
+  @elseif $xDirection == 1
+    $translateX: 0
+
   $value: unquote("#{$property}(#{$transitionDistance * $transitionDirection})")
-  @include vendor('transform', $value)
+  @if $translateX != 0
+    @include vendor('transform', translateX($translateX) $value)
+  @else
+    @include vendor('transform', $value)
 
 
-@mixin ice-vertical-positioned-tooltip($propertyY, $transitionDirection)
 
-  &:before, &:after
-    // left: calc(50% - #{$arrowBorderWidth})
-
-  .hint__content
-    // bring back the tooltip by some offset so that arrow doesn't stick at end
-    margin-left: -1 * $arrowOffsetX
-
+@mixin ice-vertical-positioned-tooltip($propertyY, $transitionDirection, $xDirection:0)
   .hint__content
     #{$propertyY}: 100%
     left: 50%
-    left: calc(50% - #{$arrowBorderWidth})
+
+  $translateX: -50%
+  @if $xDirection == -1
+  	$translateX: -100%
+  @elseif $xDirection == 1
+  	$translateX: 0
+
+  &:before, .hint__content
+    @include vendor('transform', translateX($translateX))
+
+  &:before
+    @if $xDirection != 0
+      margin-left: -$xDirection * $arrowOffsetX
+  .hint__content
+    @if $xDirection != 0
+      margin-left: -2 * $xDirection * $arrowOffsetX
 
   .hint__content
     &:after //to prevent mouse out
@@ -151,7 +153,7 @@ $custom-hint-hover-helper-size: 12px
       background-color: red
 
   &:hover .hint__content, &:focus .hint__content
-    @include ice-set-margin('translateY', $transitionDirection)
+    @include ice-set-margin('translateY', $transitionDirection, $xDirection)
 
 
 @mixin ice-horizontal-positioned-tooltip($propertyX, $transitionDirection)
@@ -188,12 +190,24 @@ $custom-hint-hover-helper-size: 12px
 .#{$prefix}top
   @include ice-vertical-positioned-tooltip('bottom', -1)
 
+.#{$prefix}top-left
+  @include ice-vertical-positioned-tooltip('bottom', -1, -1)
+
+.#{$prefix}top-right
+  @include ice-vertical-positioned-tooltip('bottom', -1, 1)
 
 /**
  * bottom tooltip
  */
 .#{$prefix}bottom
   @include ice-vertical-positioned-tooltip('top', 1)
+
+.#{$prefix}bottom-left
+  @include ice-vertical-positioned-tooltip('top', 1, -1)
+
+.#{$prefix}bottom-right
+  @include ice-vertical-positioned-tooltip('top', 1, 1)
+
 
 /**
  * right tooltip
@@ -268,16 +282,32 @@ $custom-hint-hover-helper-size: 12px
 
   &.#{$prefix}top
     .hint__content
-      @include ice-set-margin('translateY', -1)
+      @include ice-set-margin('translateY', -1, 0)
+
+  &.#{$prefix}top-left
+    .hint__content
+      @include ice-set-margin('translateY', -1, -1)
+
+  &.#{$prefix}top-right
+    .hint__content
+      @include ice-set-margin('translateY', -1, 1)
 
   &.#{$prefix}bottom
     .hint__content
-      @include ice-set-margin('translateY', 1)
+      @include ice-set-margin('translateY', 1, 0)
+
+  &.#{$prefix}bottom-left
+    .hint__content
+      @include ice-set-margin('translateY', 1, -1)
+
+  &.#{$prefix}bottom-right
+    .hint__content
+      @include ice-set-margin('translateY', 1, 1)
 
   &.#{$prefix}left
     .hint__content
-      @include ice-set-margin('translateX', -1)
+      @include ice-set-margin('translateX', -1, 0)
 
   &.#{$prefix}right
     .hint__content
-      @include ice-set-margin('translateX', 1)
+      @include ice-set-margin('translateX', 1, 0)

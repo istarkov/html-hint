@@ -22,8 +22,8 @@ export class Layout extends Component {
         </header>
         <main className={main}>
           <div>
-          Hello world --
-          <Tooltip />
+          Hello wo asdasd sd asd asd asd asdasd dasrld --
+          <Tooltip position={'bottom-right'} type={'error'} />
           -- dsfsdfsdf
           </div>
         </main>
