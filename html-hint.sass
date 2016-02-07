@@ -162,6 +162,11 @@ $custom-hint-hover-helper-size: 12px
 
 
 @mixin ice-horizontal-positioned-tooltip($propertyX, $transitionDirection)
+  &:before
+    // get the arrow out
+    margin-#{$propertyX}: -2 * $arrowBorderWidth
+    // bring back to center
+    margin-bottom: -1 * $arrowBorderWidth
   .hint__content
     // bring back to center
     margin-bottom: -1 * floor($tooltipHeight / 2)
@@ -185,7 +190,7 @@ $custom-hint-hover-helper-size: 12px
       background-color: red
 
   &:hover .hint__content, &:focus .hint__content
-    @include ice-set-margin('translateX', $transitionDirection)
+  	@include ice-set-margin('translateX', $transitionDirection, 1)
 
 
 
@@ -308,8 +313,8 @@ $custom-hint-hover-helper-size: 12px
 
   &.#{$prefix}left
     .hint__content
-      @include ice-set-margin('translateX', -1, 0)
+      @include ice-set-margin('translateX', -1, 1)
 
   &.#{$prefix}right
     .hint__content
-      @include ice-set-margin('translateX', 1, 0)
+      @include ice-set-margin('translateX', 1, 1)

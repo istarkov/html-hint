@@ -20,35 +20,38 @@ export const page = ({ styles, paragraphs, content }) => (
         <h1>HELLO</h1>
         {content.code}
       </MarkdownIt>
-      {
-        paragraphs.map(({ tooltips }, pIndex) => (
-          <div key={pIndex} className={styles.paragraph}>
-            {
-              tooltips.map(({ position, type }, tIndex) => ([
-                <Tooltip
-                  key={`tooltip_${tIndex}`}
-                  position={position}
-                  type={type}
-                  tooltip={
-                    <div className={styles.tooltip}>
-                      <h3>Hello World</h3>
-                      <div>
-                        Tell me what you doing
-                      </div>
-                      <a href="#">Some Link</a>
-                    </div>
-                  }
-                >
-                  <span className={styles.highlite}>{`${position} tooltip`}</span>
-                </Tooltip>,
-                <span key={`span_${tIndex}`}>
-                  &nbsp; -- &nbsp;
-                </span>,
-              ]))
-            }
-          </div>
-        ))
-      }
+      <div className={styles.exampleBlock}>
+        <div className={styles.example}>
+          {
+            paragraphs.map(({ tooltips }, pIndex) => (
+              <div key={pIndex} className={styles.paragraph}>
+                {
+                  tooltips.map(({ position, type, always, hoverable }, tIndex) => (
+                    <Tooltip
+                      key={`tooltip_${tIndex}`}
+                      position={position}
+                      type={type}
+                      always={always}
+                      hoverable={hoverable}
+                      tooltip={
+                        <div className={styles.tooltip}>
+                          <h3>Hello World</h3>
+                          <div>
+                            Tell me what you doing
+                          </div>
+                          <a href="#">Some Link</a>
+                        </div>
+                      }
+                    >
+                      <div className={styles.highlite}>{`${position} tooltip`}</div>
+                    </Tooltip>
+                  ))
+                }
+              </div>
+            ))
+          }
+        </div>
+      </div>
     </div>
   </div>
 );
@@ -60,22 +63,22 @@ export const pageHOC = compose(
     paragraphs: [
       {
         tooltips: [
+          { position: 'top-left', type: 'warning' },
+          { position: 'top', type: 'error' },
+          { position: 'top-right', type: 'info' },
+        ],
+      },
+      {
+        tooltips: [
+          { position: 'left', type: 'info' },
           { position: 'right', type: 'info' },
         ],
       },
-
       {
         tooltips: [
-          { position: 'top-right', type: 'info' },
-          { position: 'top', type: 'error' },
-          { position: 'top-left', type: 'warning' },
-        ],
-      },
-      {
-        tooltips: [
-          { position: 'bottom-right', type: 'success' },
-          { position: 'bottom', type: 'error' },
           { position: 'bottom-left', type: 'warning' },
+          { position: 'bottom', type: 'error' },
+          { position: 'bottom-right', type: 'success' },
         ],
       },
 
