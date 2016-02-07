@@ -4,7 +4,7 @@
  * hint part
  */
 .main
-  composes: hintHtml
+  composes: hint--html
   // to prevent hint hiding on hover
   // composes: hintHoverable
   // to set your color use
@@ -12,8 +12,5 @@
   // to add hint offset
   cursor: pointer
 
-.main
-  // color: blue
-
 .tooltip
-  composes: hintContent
+  composes: hint__content

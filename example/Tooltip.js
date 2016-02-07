@@ -26,8 +26,8 @@ export const tooltipHOC = compose(
     hoverable: false,
   }),
   mapPropsOnChange(
-    ['position', 'type', 'always', 'hoverable', 'styles'],
-    ({ position, type, always, hoverable, styles }) => ({
+    ['position', 'type', 'always', 'hoverable', 'hidden', 'styles'],
+    ({ position, type, always, hoverable, hidden, styles }) => ({
       styles: {
         ...styles,
         main: cx({
@@ -36,6 +36,7 @@ export const tooltipHOC = compose(
           [styles[`hint--${position}`]]: true,
           [styles[`hint--always`]]: always,
           [styles[`hint--hoverable`]]: hoverable,
+          [styles[`hint--hidden`]]: hidden,
         }),
       },
     })

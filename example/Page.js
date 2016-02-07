@@ -5,51 +5,58 @@ import Tooltip from './Tooltip.js';
 import pageStyles from './Page.sass';
 
 import MarkdownIt from './MarkdownIt';
-
-// import ReactMarkdown from 'react-markdown';
-// import githubCss from 'github-markdown-css';
 import mdContent from './content.md';
 import parsemd from './utils/parsemd';
+
+const renderTooltipExample = ({ paragraphs, styles, always, hoverable, hidden }) => (
+  <div className={styles.exampleBlock}>
+    <div className={styles.example}>
+      {
+        paragraphs.map(({ tooltips }, pIndex) => (
+          <div key={pIndex} className={styles.paragraph}>
+            {
+              tooltips.map(({ position, type }, tIndex) => (
+                <Tooltip
+                  key={`tooltip_${tIndex}`}
+                  position={position}
+                  type={type}
+                  always={always}
+                  hidden={hidden}
+                  hoverable={hoverable}
+                  tooltip={
+                    <div className={styles.tooltip}>
+                      <h3>Hello World</h3>
+                      <div>
+                        Tell me what you doing
+                      </div>
+                      <a href="#">Some Link</a>
+                    </div>
+                  }
+                >
+                  <div className={styles.highlite}>{`${position} tooltip`}</div>
+                </Tooltip>
+              ))
+            }
+          </div>
+        ))
+      }
+    </div>
+  </div>
+);
 
 export const page = ({ styles, paragraphs, content }) => (
   <div className={styles.main}>
 
     <MarkdownIt>
-      {content.main}
-      <h1>HELLO</h1>
-      {content.code}
-      <div className={styles.exampleBlock}>
-        <div className={styles.example}>
-          {
-            paragraphs.map(({ tooltips }, pIndex) => (
-              <div key={pIndex} className={styles.paragraph}>
-                {
-                  tooltips.map(({ position, type, always, hoverable }, tIndex) => (
-                    <Tooltip
-                      key={`tooltip_${tIndex}`}
-                      position={position}
-                      type={type}
-                      always={always}
-                      hoverable={hoverable}
-                      tooltip={
-                        <div className={styles.tooltip}>
-                          <h3>Hello World</h3>
-                          <div>
-                            Tell me what you doing
-                          </div>
-                          <a href="#">Some Link</a>
-                        </div>
-                      }
-                    >
-                      <div className={styles.highlite}>{`${position} tooltip`}</div>
-                    </Tooltip>
-                  ))
-                }
-              </div>
-            ))
-          }
-        </div>
+      {content.part1}
+      {renderTooltipExample({ paragraphs, styles, always: false, hoverable: false })}
+      {content.part2}
+      {renderTooltipExample({ paragraphs, styles, always: false, hoverable: true })}
+      {content.part3}
+      <div className={styles.bigMargin}>
+        {renderTooltipExample({ paragraphs, styles, always: true, hoverable: false })}
       </div>
+      }
     </MarkdownIt>
   </div>
 );
@@ -69,14 +76,14 @@ export const pageHOC = compose(
       {
         tooltips: [
           { position: 'left', type: 'info' },
-          { position: 'right', type: 'info' },
+          { position: 'right', type: 'success' },
         ],
       },
       {
         tooltips: [
           { position: 'bottom-left', type: 'warning' },
           { position: 'bottom', type: 'error' },
-          { position: 'bottom-right', type: 'success' },
+          { position: 'bottom-right', type: 'info' },
         ],
       },
 
