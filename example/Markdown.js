@@ -5,8 +5,6 @@ import mapPropsOnChange from 'recompose/mapPropsOnChange';
 import githubCss from 'github-markdown-css';
 import markdown from './utils/markdown';
 
-console.log('ddd', githubCss['markdown-body']);
-
 export const markdownComp = ({ html }) => (
   <div
     className={githubCss['markdown-body']}
