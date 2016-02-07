@@ -11,12 +11,12 @@ export class Layout extends Component {
     return (
       <div className={layout}>
         <header className={header}>
-          <div>
-            React tooltips made easy
-          </div>
+          <h4>
+            HTML HINT
+          </h4>
           <div>
             <a href="https://github.com/istarkov/html-hint">
-              Star at github.com
+              github.com
             </a>
           </div>
         </header>

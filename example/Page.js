@@ -13,13 +13,11 @@ import parsemd from './utils/parsemd';
 
 export const page = ({ styles, paragraphs, content }) => (
   <div className={styles.main}>
-    <div className={styles.block}>
-      <h3>Unhoverable tooltip examples</h3>
-      <MarkdownIt>
-        {content.main}
-        <h1>HELLO</h1>
-        {content.code}
-      </MarkdownIt>
+
+    <MarkdownIt>
+      {content.main}
+      <h1>HELLO</h1>
+      {content.code}
       <div className={styles.exampleBlock}>
         <div className={styles.example}>
           {
@@ -52,7 +50,7 @@ export const page = ({ styles, paragraphs, content }) => (
           }
         </div>
       </div>
-    </div>
+    </MarkdownIt>
   </div>
 );
 

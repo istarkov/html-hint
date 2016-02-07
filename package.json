@@ -2,7 +2,7 @@
   "name": "html-hint",
   "version": "0.2.0",
   "description": "css hint based on hint.css with html content support",
-  "main": "index.js",
+  "main": "html-hint-cc.sass",
   "scripts": {
     "start": "kotatsu serve --port 4000 --config ./config/loaders.js --presets es2015,stage-0,react,react-hmre ./example/Main.js",
     "build-example": "NODE_ENV=production kotatsu build client --minify --config ./config/loaders.js --presets es2015,stage-0,react ./example/Main.js -o build",
@@ -45,16 +45,16 @@
     "raw-loader": "^0.5.1",
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
-    "url-loader": "^0.5.7"
-  },
-  "dependencies": {
-    "github-markdown-css": "^2.2.1",
-    "highlight.js": "^9.1.0",
-    "hint.css": "^2.0.0",
+    "url-loader": "^0.5.7",
     "markdown-it": "^5.1.0",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-motion": "^0.4.2",
-    "recompose": "^0.14.5"
+    "recompose": "^0.14.5",
+    "github-markdown-css": "^2.2.1",
+    "highlight.js": "^9.1.0"
+  },
+  "dependencies": {
+    "hint.css": "^2.0.0",
   }
 }

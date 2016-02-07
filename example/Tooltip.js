@@ -6,14 +6,14 @@ import mapPropsOnChange from 'recompose/mapPropsOnChange';
 import tooltipStyles from './Tooltip.sass';
 
 export const tooltipComp = ({ styles, children, tooltip }) => (
-  <span
+  <div
     className={styles.main}
   >
     {children}
     <div className={styles.tooltip}>
       { tooltip }
     </div>
-  </span>
+  </div>
 );
 
 export const tooltipHOC = compose(
