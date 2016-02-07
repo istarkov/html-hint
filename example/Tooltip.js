@@ -5,14 +5,13 @@ import defaultProps from 'recompose/defaultProps';
 import mapPropsOnChange from 'recompose/mapPropsOnChange';
 import tooltipStyles from './Tooltip.sass';
 
-export const tooltip = ({ styles }) => (
+export const tooltipComp = ({ styles, children, tooltip }) => (
   <span
     className={styles.main}
   >
-    hh
+    {children}
     <div className={styles.tooltip}>
-      <h4>worldsadasdasdasa</h4>
-      <div>hello</div>
+      { tooltip }
     </div>
   </span>
 );
@@ -24,21 +23,23 @@ export const tooltipHOC = compose(
     position: 'top',
     type: 'info', // error,
     always: false,
+    hoverable: false,
   }),
   mapPropsOnChange(
-    ['position', 'type', 'always', 'styles'],
-    ({ position, type, always, styles }) => ({
+    ['position', 'type', 'always', 'hoverable', 'styles'],
+    ({ position, type, always, hoverable, styles }) => ({
       styles: {
         ...styles,
         main: cx({
           [styles.main]: true,
           [styles[`hint--${type}`]]: true,
           [styles[`hint--${position}`]]: true,
-          [styles[`hint--${always}`]]: always,
+          [styles[`hint--always`]]: always,
+          [styles[`hint--hoverable`]]: hoverable,
         }),
       },
     })
   )
 );
 
-export default tooltipHOC(tooltip);
+export default tooltipHOC(tooltipComp);

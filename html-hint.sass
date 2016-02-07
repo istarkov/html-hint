@@ -19,8 +19,13 @@ $custom-hint-hover-helper-size: 12px
   padding: 8px 10px
   font-size: 12px
   line-height: 12px
+  pointer-events: none
 
-.hint
+.hint--hoverable
+  .hint__content
+    pointer-events: auto
+
+.hint--html
   position: relative
   display: inline-block
 
@@ -64,7 +69,7 @@ $custom-hint-hover-helper-size: 12px
     z-index: $zIndex + 1
 
 
-.hint
+.hint--html
   .hint__content
     position: absolute
 
@@ -224,12 +229,9 @@ $custom-hint-hover-helper-size: 12px
 
 
 
-@mixin ice-hint-type($color)
+@mixin hint-color($color)
   .hint__content
     background-color: $color
-    //text-shadow: 0 -1px 0px darken($color, $textShadowDarkenAmount)
-
-    // generate arrow color style
   @include arrow-border-color($color)
 
 
@@ -237,30 +239,30 @@ $custom-hint-hover-helper-size: 12px
  * Error
  */
 .#{$prefix}error
-  @include ice-hint-type($errorColor)
+  @include hint-color($errorColor)
 
 
 /**
  * Warning
  */
 .#{$prefix}warning
-  @include ice-hint-type($warningColor)
+  @include hint-color($warningColor)
 
 
 /**
  * Info
  */
 .#{$prefix}info
-  @include ice-hint-type($infoColor)
+  @include hint-color($infoColor)
 
 
 /**
  * Success
  */
 .#{$prefix}success
-  @include ice-hint-type($successColor)
+  @include hint-color($successColor)
 
-.hint
+.hint--html
   &.#{$prefix}hidden
     &:hover
       &:after,&:before

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import compose from 'recompose/compose';
 import defaultProps from 'recompose/defaultProps';
 import layoutStyles from './Layout.sass';
-import Tooltip from './Tooltip.js';
+import Page from './Page.js';
 
 // for hmr to work I need the first class to extend Component
 export class Layout extends Component {
@@ -21,11 +21,7 @@ export class Layout extends Component {
           </div>
         </header>
         <main className={main}>
-          <div>
-          Hello wo asdasd sd asd asd asd asdasd dasrld --
-          <Tooltip position={'bottom-right'} type={'error'} />
-          -- dsfsdfsdf
-          </div>
+          <Page />
         </main>
         <footer className={footer}>
           <div>

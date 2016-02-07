@@ -1,0 +1,19 @@
+@import '../html-hint-cc.sass'
+
+/**
+ * hint part
+ */
+.main
+  composes: hintHtml
+  // to prevent hint hiding on hover
+  // composes: hintHoverable
+  // to set your color use
+  // @include hint-color(yellow)
+  // to add hint offset
+  cursor: pointer
+
+.main
+  // color: blue
+
+.tooltip
+  composes: hintContent

@@ -30,12 +30,28 @@ module.exports = {
         ],
         include: [
           path.join(__dirname, '../src'),
+          // path.join(__dirname, '../node_modules'),
+        ],
+      },
+      {
+        test: /\.css$/,
+        loaders: [
+          'style-loader',
+          'css-loader?modules&importLoaders=1&localIdentName=[local]',
+          'postcss-loader',
+        ],
+        include: [
+          // path.join(__dirname, '../src'),
           path.join(__dirname, '../node_modules'),
         ],
       },
       {
         test: /\.svg$/,
         loaders: ['url-loader?limit=7000'],
+      },
+      {
+        test: /\.md$/,
+        loaders: ['raw-loader'],
       },
     ],
   },
