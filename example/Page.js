@@ -48,6 +48,8 @@ export const page = ({ styles, paragraphs, content }) => (
   <div className={styles.main}>
 
     <MarkdownIt>
+      {content.part0}
+      {renderTooltipExample({ paragraphs, styles, always: false, hoverable: false })}
       {content.part1}
       {renderTooltipExample({ paragraphs, styles, always: false, hoverable: false })}
       {content.part2}
@@ -56,7 +58,6 @@ export const page = ({ styles, paragraphs, content }) => (
       <div className={styles.bigMargin}>
         {renderTooltipExample({ paragraphs, styles, always: true, hoverable: false })}
       </div>
-      }
     </MarkdownIt>
   </div>
 );

@@ -1,9 +1,18 @@
----:part1
+---:part0
 
 ### HINT HTML
 
 Based on great [hint-css](https://github.com/chinchang/hint.css),
 but allows to create html hoverable tooltips.
+
+#### Example
+
+(_Hover on any block below_)
+
+
+
+
+---:part1
 
 ### Install
 
