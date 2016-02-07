@@ -1,4 +1,4 @@
-## css html hint 
+## html-hint 
 *based on [hint.css](https://github.com/chinchang/hint.css) with html content support*
 
 The main disadvantage of [hint.css](https://github.com/chinchang/hint.css) is it's inability to show html content inside hint.
