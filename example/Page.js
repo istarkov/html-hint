@@ -4,11 +4,11 @@ import defaultProps from 'recompose/defaultProps';
 import Tooltip from './Tooltip.js';
 import pageStyles from './Page.sass';
 
-import MarkdownIt from './MarkdownIt';
+import MarkdownIt from './Markdown/MarkdownIt';
 import mdContent from './content.md';
-import parsemd from './utils/parsemd';
 
-const renderTooltipExample = ({ paragraphs, styles, always, hoverable, hidden }) => (
+
+const renderTooltipEx = ({ paragraphs, styles, always, hoverable, hidden }) => (
   <div className={styles.exampleBlock}>
     <div className={styles.example}>
       {
@@ -47,17 +47,16 @@ const renderTooltipExample = ({ paragraphs, styles, always, hoverable, hidden })
 export const page = ({ styles, paragraphs, content }) => (
   <div className={styles.main}>
 
-    <MarkdownIt>
-      {content.part0}
-      {renderTooltipExample({ paragraphs, styles, always: false, hoverable: false })}
-      {content.part1}
-      {renderTooltipExample({ paragraphs, styles, always: false, hoverable: false })}
-      {content.part2}
-      {renderTooltipExample({ paragraphs, styles, always: false, hoverable: true })}
-      {content.part3}
-      <div className={styles.bigMargin}>
-        {renderTooltipExample({ paragraphs, styles, always: true, hoverable: false })}
-      </div>
+    <MarkdownIt
+      exampleMain={renderTooltipEx({ paragraphs, styles, always: false, hoverable: false })}
+      exampleHoverable={renderTooltipEx({ paragraphs, styles, always: false, hoverable: true })}
+      exampleAlways={
+        <div className={styles.bigMargin}>
+          {renderTooltipEx({ paragraphs, styles, always: true, hoverable: false })}
+        </div>
+      }
+    >
+      {content}
     </MarkdownIt>
   </div>
 );
@@ -65,7 +64,7 @@ export const page = ({ styles, paragraphs, content }) => (
 export const pageHOC = compose(
   defaultProps({
     styles: pageStyles,
-    content: parsemd(mdContent),
+    content: mdContent,
     paragraphs: [
       {
         tooltips: [

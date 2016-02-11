@@ -1,4 +1,5 @@
 // file: main.jsx
+// import 'babel-polyfill';
 import React from 'react';
 import { render } from 'react-dom';
 import Layout from './Layout.js';

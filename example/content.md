@@ -1,5 +1,3 @@
----:part0
-
 ### HINT HTML
 
 Based on great [hint-css](https://github.com/chinchang/hint.css),
@@ -9,10 +7,7 @@ but allows to create html hoverable tooltips.
 
 (_Hover on any block below_)
 
-
-
-
----:part1
+---:exampleMain
 
 ### Install
 
@@ -77,7 +72,7 @@ And different type options
 
 (_Hover on any block below_)
 
----:part2
+---:exampleMain
 
 ---
 
@@ -96,7 +91,7 @@ By default tootips are not hoverable, adding `hint--hoverable` class makes them 
 
 (_Hover on any block and tooltip below_)
 
----:part3
+---:exampleHoverable
 
 ---
 
@@ -108,3 +103,5 @@ using `hint--hidden` you will prevent tooltip to show.
 (_both hint--always and hint--hidden will hide tooltip on hover_)
 
 #### hint--always example
+
+---:exampleAlways

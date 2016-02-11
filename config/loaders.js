@@ -1,4 +1,3 @@
-var path = require('path'); // eslint-disable-line no-var
 var autoprefixer = require('autoprefixer');  // eslint-disable-line no-var
 
 module.exports = {
@@ -11,7 +10,7 @@ module.exports = {
         test: /\.sass$/,
         loaders: [
           'style-loader',
-          'css-loader?modules&importLoaders=2&localIdentName=[name]__[local]',
+          'css-loader?modules&importLoaders=2&localIdentName=[name]__[local]__[hash:5]',
           'postcss-loader',
           `sass-loader?precision=10&indentedSyntax=sass`,
         ],
@@ -25,24 +24,8 @@ module.exports = {
         test: /\.css$/,
         loaders: [
           'style-loader',
-          'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]',
+          'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:5]',
           'postcss-loader',
-        ],
-        include: [
-          path.join(__dirname, '../src'),
-          // path.join(__dirname, '../node_modules'),
-        ],
-      },
-      {
-        test: /\.css$/,
-        loaders: [
-          'style-loader',
-          'css-loader?modules&importLoaders=1&localIdentName=[local]',
-          'postcss-loader',
-        ],
-        include: [
-          // path.join(__dirname, '../src'),
-          path.join(__dirname, '../node_modules'),
         ],
       },
       {

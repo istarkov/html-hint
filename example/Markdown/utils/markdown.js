@@ -1,6 +1,5 @@
 import hljs from 'highlight.js';
 import markdownIt from 'markdown-it';
-import 'highlight.js/styles/github.css';
 
 const markdown = (() => {
   const md = markdownIt({
