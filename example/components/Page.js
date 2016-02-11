@@ -2,7 +2,7 @@ import React from 'react';
 import compose from 'recompose/compose';
 import defaultProps from 'recompose/defaultProps';
 import Markdown from './Markdown';
-import TooltipsExamples from './Tooltip/TooltipsExamples';
+import TooltipExamples from './Tooltip/TooltipExamples';
 import pageStyles from './Page.sass';
 import mdContent from './README.md';
 
@@ -10,15 +10,15 @@ export const page = ({ styles, paragraphs, content }) => (
   <div className={styles.main}>
     <Markdown
       exampleMain={
-        <TooltipsExamples {...{ paragraphs, styles, always: false, hoverable: false }} />
+        <TooltipExamples {...{ paragraphs, always: false, hoverable: false }} />
       }
       exampleHoverable={
-        <TooltipsExamples {...{ paragraphs, styles, always: false, hoverable: true }} />
+        <TooltipExamples {...{ paragraphs, always: false, hoverable: true }} />
       }
       exampleAlways={
         <div className={styles.bigMargin}>
           {
-            <TooltipsExamples {...{ paragraphs, styles, always: true, hoverable: false }} />
+            <TooltipExamples {...{ paragraphs, always: true, hoverable: false }} />
           }
         </div>
       }
