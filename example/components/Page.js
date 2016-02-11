@@ -1,12 +1,10 @@
 import React from 'react';
 import compose from 'recompose/compose';
 import defaultProps from 'recompose/defaultProps';
-import pageStyles from './Page.sass';
-
 import Markdown from './Markdown';
+import TooltipsExamples from './Tooltip/TooltipsExamples';
+import pageStyles from './Page.sass';
 import mdContent from './README.md';
-import TooltipsExamples from './Tooltip/TooltipsExamples'
-
 
 export const page = ({ styles, paragraphs, content }) => (
   <div className={styles.main}>

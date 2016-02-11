@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import compose from 'recompose/compose';
 import defaultProps from 'recompose/defaultProps';
 import layoutStyles from './Layout.sass';
 
 // for hmr to work I need the first class to extend Component
-export const layout = ({
+export const layoutComp = ({
   styles: { layout, header, main, footer, logo },
   children,
 }) => (
@@ -44,4 +44,4 @@ export const layoutHOC = compose(
   })
 );
 
-export default layoutHOC(layout);
+export default layoutHOC(layoutComp);
