@@ -45,7 +45,7 @@
     "file-loader": "^0.8.5",
     "github-markdown-css": "^2.2.1",
     "highlight.js": "^9.1.0",
-    "kotatsu": "^0.9.1",
+    "kotatsu": "^0.10.0",
     "lodash": "^4.3.0",
     "markdown-it": "^5.1.0",
     "node-sass": "^3.4.2",

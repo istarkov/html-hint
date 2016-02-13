@@ -1,8 +1,19 @@
 var autoprefixer = require('autoprefixer');  // eslint-disable-line no-var
+const webpack = require('webpack');
+
+const envObj = Object.keys(process.env)
+  .reduce((r, k) => Object.assign({}, r, {
+    [k]: JSON.stringify(process.env[k]),
+  }), {});
 
 module.exports = {
   postcss: [
     autoprefixer({ browsers: ['last 2 versions'] }),
+  ],
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': envObj,
+    }),
   ],
   module: {
     loaders: [
