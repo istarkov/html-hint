@@ -1,6 +1,6 @@
 {
   "name": "html-hint",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "css hint based on hint.css with html content support",
   "main": "html-hint-cc.sass",
   "scripts": {
