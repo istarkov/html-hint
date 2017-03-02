@@ -22,7 +22,7 @@ npm install --save html-hint
   Place here any element
   <div class="hint__content">
     Place here your tooltip HTML content
-  <div>
+  </div>
 </div>
 ```
 
@@ -33,7 +33,7 @@ If you are prefer to use css-modules you can use composes
   Place here any element
   <div class={styles.myTooltip}>
     Place here your tooltip HTML content
-  <div>
+  </div>
 </div>
 ```
 
@@ -81,7 +81,7 @@ By default tootips are not hoverable, adding `hint--hoverable` class makes them 
   Place here any element
   <div class="hint__content">
     Place here your tooltip HTML content
-  <div>
+  </div>
 </div>
 ```
 
